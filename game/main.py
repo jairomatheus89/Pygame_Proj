@@ -1,7 +1,16 @@
-# Example file showing a basic pygame "game loop"
 import pygame
-from player.playerrect import playerRect
-from controlls.playerControlls.controll import controll_player 
+
+##### ACTORS IMPORT #####
+from actors.playerrect import playerRect , lulapng, lulapngSurf
+from actors.pingarect import pingaRect , pingapngSurf
+import fonts
+
+###### LOGICI IMPORTS #######
+from controlls.playerControlls.controll import controll_player # player controll
+from controlls.pingalogic import pinga_PlayerCollision , get_pingaScore # pingacontroll
+
+################## vars logic #########
+
 
 # pygame setup
 pygame.init()
@@ -10,22 +19,33 @@ clock = pygame.time.Clock()
 running = True
 
 while running:
-    # poll for events
-    # pygame.QUIT event means the user clicked X to close your window
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-            
-    controll_player()
 
-    # fill the screen with a color to wipe away anything from last frame
+    ###### LOGIC RENDER $######### function,vars,etc...
+    controll_player()
+    pinga_PlayerCollision()
+
+    pingaScore = get_pingaScore()
+
+    #BLACK SCREEN BASE SURFACE
     screen.fill("black")
 
-    # RENDER YOUR GAME HERE
+    ################# RENDER YOUR GAME HERE #################
 
-    pygame.draw.rect(screen,"WHITE",playerRect)
 
-    # flip() the display to put your work on screen
+    screen.blit(lulapngSurf, playerRect.topleft)
+
+    screen.blit(pingapngSurf, pingaRect.topleft)
+
+    screen.blit(fonts.render_score(),fonts.pingaText_rect)
+
+         ##### HIT BOXES rects ########
+    #pygame.draw.rect(screen,"WHITE",playerRect,3)
+    #pygame.draw.rect(screen,"RED",pingaRect,3)
+
+    #update frames
     pygame.display.flip()
 
     clock.tick(60)  # limits FPS to 60

@@ -1,5 +1,5 @@
 import pygame
-from player.playerrect import playerRect
+from actors.playerrect import playerRect
 
 
 speedPlayer = 10
@@ -8,11 +8,11 @@ def controll_player():
 
     keys = pygame.key.get_pressed()
 
-    if keys[pygame.K_LEFT]:
+    if keys[pygame.K_LEFT] and playerRect.x > 0:
         playerRect.x -= speedPlayer
-    if keys[pygame.K_RIGHT]:
+    if keys[pygame.K_RIGHT] and playerRect.x < 1280 - playerRect.width:
         playerRect.x += speedPlayer
-    if keys[pygame.K_UP]:
+    if keys[pygame.K_UP] and playerRect.y > 0:
         playerRect.y -= speedPlayer
-    if keys[pygame.K_DOWN]:
+    if keys[pygame.K_DOWN] and playerRect.y < 720 - playerRect.height:
         playerRect.y += speedPlayer
