@@ -41,9 +41,13 @@ while running:
 
     screen.blit(fonts.render_score(),fonts.pingaText_rect)
 
+    screen.blit(fonts.cheatbuttonText,fonts.cheatbuttonRect)
+
+
          ##### HIT BOXES rects ########
     #pygame.draw.rect(screen,"WHITE",playerRect,3)
     #pygame.draw.rect(screen,"RED",pingaRect,3)
+    #pygame.draw.rect(screen,"YELLOW",fonts.cheatbuttonRect,3)
 
     #update frames
     pygame.display.flip()

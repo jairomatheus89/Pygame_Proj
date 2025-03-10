@@ -1,5 +1,6 @@
 import pygame
 from actors.playerrect import playerRect
+from actors.pingarect import pingaRect
 
 
 speedPlayer = 10
@@ -16,3 +17,8 @@ def controll_player():
         playerRect.y -= speedPlayer
     if keys[pygame.K_DOWN] and playerRect.y < 720 - playerRect.height:
         playerRect.y += speedPlayer
+
+    if keys[pygame.K_l]:
+        pingaRect.y = playerRect.y
+        pingaRect.x = playerRect.x
+
