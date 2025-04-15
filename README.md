@@ -1,18 +1,10 @@
-first plan:
-    - render a simple window
+# Principal Objective:
 
-
-
-
-
-
-
-
-
-##########################################################
-Game Structure:
-    game:
-        main.py
-        controlls/
-        player/
+    Game Structure:
+        game:
+            main.py
+            controlls/
+            player/
+        assets:
+            player
 
