@@ -1,10 +1,3 @@
 # Principal Objective:
 
-    Game Structure:
-        game:
-            main.py
-            controlls/
-            player/
-        assets:
-            player
-
+    GET FUNNY MAKING A GAME =D
